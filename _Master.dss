@@ -1,0 +1,38 @@
+! -- Mes: 4 .. Dia: 0
+clear
+New Circuit.bhmr27 bus1=1951443s4357308w phases=3 basekV=13.8 mvasc3=183.94 mvasc1=66.07
+New VSource.bhmr11 bus1=1952143s4357340w phases=3 basekV=13.8 mvasc3=106.5 mvasc1=32.62
+New VSource.bhad21 bus1=1952373s4358352w phases=3 basekV=13.8 mvasc3=114.75 mvasc1=29.96
+
+Redirect Lines.dss
+Redirect Loads.dss
+Redirect PVSystems.dss
+Redirect MicroTurbines.dss
+Redirect Storage.dss
+Redirect BusMarker.dss
+
+New Monitor.v_mr27 element=line.bhmr27_n001 terminal=1 ppolar=no mode=0
+New Monitor.p_mr27 element=line.bhmr27_n001 terminal=1 ppolar=no mode=1
+New Monitor.v_mr11 element=line.bhmr11_n001 terminal=1 ppolar=no mode=0
+New Monitor.p_mr11 element=line.bhmr11_n001 terminal=1 ppolar=no mode=1
+New Monitor.v_ad21 element=line.bhad21_n001 terminal=1 ppolar=no mode=0
+New Monitor.p_ad21 element=line.bhad21_n001 terminal=1 ppolar=no mode=1
+New Monitor.v_icbe element=Load.icb_be terminal=1 ppolar=no mode=0
+New Monitor.v_icbk element=Load.icb_bk terminal=1 ppolar=no mode=0
+New Monitor.v_eng element=Load.esceng_esc terminal=1 ppolar=no mode=0
+New Monitor.v_fis element=Load.icex_fis terminal=1 ppolar=no mode=0
+New Monitor.v_reito element=Load.reito terminal=1 ppolar=no mode=0
+New Monitor.v_projoa element=Storage.pjo1 terminal=1 ppolar=no mode=0
+New Monitor.p_projoa element=Storage.pjo1 terminal=1 ppolar=no mode=1
+New Monitor.v_bessli element=Storage.BessLi terminal=1 ppolar=no mode=0
+New Monitor.p_bessli element=Storage.BessLi terminal=1 ppolar=no mode=1
+New Monitor.v_besspcb element=Storage.BessPcB terminal=1 ppolar=no mode=0
+New Monitor.p_besspcb element=Storage.BessPcB terminal=1 ppolar=no mode=1
+
+New EnergyMeter.bhmr27 element=line.BHMR27_n001 terminal=1
+New EnergyMeter.bhmr11 element=line.BHMR11_n001 terminal=1
+New EnergyMeter.bhad21 element=line.BHAD21_n001 terminal=1
+
+Set VoltageBases=[ 0.22 13.8 ]
+CalcVoltageBases
+
